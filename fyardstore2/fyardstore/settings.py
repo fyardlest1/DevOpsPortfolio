@@ -98,17 +98,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#     'NAME': 'fyardstore2_db', 
-#     'USER': 'postgres', 
-#     'PASSWORD': 'YoodY5.0,',
-#     'HOST': '127.0.0.1', 
-#     'PORT': '5433',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
