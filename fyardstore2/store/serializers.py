@@ -23,18 +23,3 @@ class ProductSerializer(serializers.ModelSerializer):
     # creating the serializer method field
     def calculate_tax(self, product: Product):
         return product.unit_price * Decimal(1.1)
-
-    # overrite the create method
-    # def create(self, validateed_data):
-    #     product = Product(**validateed_data)
-    #     product.other = 1
-    #     product.save()
-    #     return product
-
-    # overrite the update method
-    # def update(self, instance, validateed_data):
-    #     instance.unit_price = validateed_data.get('unit_price')
-    #     instance.save()
-    #     return instance
-
-   

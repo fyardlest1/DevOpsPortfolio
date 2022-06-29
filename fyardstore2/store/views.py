@@ -1,13 +1,13 @@
 from django.db.models.aggregates import Count
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
-from django.http.response import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.parsers import JSONParser
 from .models import Product, Collection
 from .serializers import CollectionSerializer, ProductSerializer
+
 
 @api_view(['GET', 'POST'])
 def product_list(request):

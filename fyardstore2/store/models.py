@@ -70,7 +70,7 @@ class Customer(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     class Meta:
-        ordering = ['first_name', 'last_name']
+        ordering = ['first_name', 'last_name', 'membership']
 
 
 class Order(models.Model):
@@ -123,10 +123,3 @@ class Address(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
 
-# Implement a 1-to-1 relationship between Customer & Address
-# Note that a customer should exist before creating an address
-# with this Implementation a customer can only have one address
-# class Address(models.Model):
-#     street = models.CharField(max_length=255)
-#     city = models.CharField(max_length=255)
-#     customer = models.OneToOneField(Customer, on_delete=models.CASCADE, primary_key=True)

@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&g)di)-8oxq)_xwy^$+cc7-q@cj9j-5e1ag^v4m+saquk!_eha'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1.',
+    # '127.0.0.1',
 ]
 
 
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'store_custom',
     'tags',
     'likes',
+    'main'
 ]
 
 MIDDLEWARE = [
