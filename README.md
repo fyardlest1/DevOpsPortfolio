@@ -110,7 +110,7 @@ Before running the project you have to create an environment variable
 
 8. Confirm that the fyardlest2_db's public schema contains the application tables/
 
-9. Finally, open a new terminal, cd into fyardstore2 where live the manage,py file, and run the command:
+9. Finally, open a new terminal, cd into fyardstore2 where live the manage.py file, and run the command:
 ```
     python manage.py runserver
 ```
