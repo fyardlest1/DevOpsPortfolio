@@ -9,7 +9,7 @@ class Promotion(models.Model):
 
 class Collection(models.Model):
     title = models.CharField(max_length=255)
-    products_count = models.IntegerField(validators=[MinValueValidator(0)])
+    product_in_collection = models.IntegerField(validators=[MinValueValidator(0)])
     featured_product = models.ForeignKey(
         'Product', on_delete=models.SET_NULL, null=True, related_name='+', blank=True)
 
@@ -22,13 +22,15 @@ class Collection(models.Model):
         ordering = ['title']
 
 # The store models here.
+
+
 class Product(models.Model):
     title = models.CharField(max_length=255)  # varchar(255)
     slug = models.SlugField()
     description = models.TextField(null=True, blank=True)
     # max_digits & decimal_places are always requires (ex: 9999.99)
     unit_price = models.DecimalField(
-        max_digits=6, 
+        max_digits=6,
         decimal_places=2,
         validators=[MinValueValidator(1)])
     inventory = models.IntegerField(validators=[MinValueValidator(0)])
@@ -36,7 +38,8 @@ class Product(models.Model):
     # Implement a 1-to-many relationship between Collection & Product
     # A collection can have multiple products
     # on_delete=models.PROTECT means if we are accidently delete a collection we do not delete all the products in that collection
-    collection = models.ForeignKey(Collection, on_delete=models.PROTECT, related_name='products')
+    collection = models.ForeignKey(
+        Collection, on_delete=models.PROTECT, related_name='products', null=True)
     # Implement a many-to-many relationship between Promotion & Product
     promotions = models.ManyToManyField(Promotion, blank=True)
 
@@ -96,7 +99,8 @@ class OrderItem(models.Model):
     # Implement a 1-to-many relationship between Order & Item
     # An Order can have multiple Items
     order = models.ForeignKey(Order, on_delete=models.PROTECT)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='orderitems')
+    product = models.ForeignKey(
+        Product, on_delete=models.PROTECT, related_name='orderitems')
     quantity = models.PositiveSmallIntegerField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
 
@@ -121,5 +125,3 @@ class Address(models.Model):
     city = models.CharField(max_length=255)
     zip = models.CharField(max_length=25, null=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-
-

@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fyardstore2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fyardstore2
+  template:
+    metadata:
+      labels:
+        app: fyardstore2
+    spec:
+      containers:
+        - args:
+            - python
+            - manage.py
+            - runserver
+            - 0.0.0.0:8000
+          name: fyardstore2
+          image: yardjangoregistry.azurecr.io/fyardstore2:v2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_HOST
+              value: "ylfefyardstore2-server.postgres.database.azure.com"
+            - name: DATABASE_USER
+              value: "brokenmare0"
+            - name: DATABASE_PASSWORD
+              value: "HyzUCILwdIUJDqkp9pffCA"
+            - name: DATABASE_NAME
+              value: "nc_tutorials_db"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: "app"
+                    operator: In
+                    values:
+                      - fyardstore2
+              topologyKey: "kubernetes.io/hostname"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fyardstore2-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8000
+  selector:
+    app: fyardstore2

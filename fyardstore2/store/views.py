@@ -23,17 +23,6 @@ def product_list(request):
         store_serializer.is_valid(raise_exception=True)
         store_serializer.save()
         return Response(store_serializer.data, status=status.HTTP_201_CREATED)
-    
-    # elif request.method == 'POST':
-    #     store_data = JSONParser().parse(request)
-    #     store_serializer = ProductSerializer(data=store_data)
-    #     if store_serializer.is_valid():
-    #         store_serializer.save()
-    #         return JsonResponse(store_serializer.data,
-    #                             status=status.HTTP_201_CREATED)
-    #     return JsonResponse(store_serializer.errors,
-    #                         status=status.HTTP_400_BAD_REQUEST)
-
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -57,7 +46,8 @@ def product_detail(request, id):
                 status=status.HTTP_405_METHOD_NOT_ALLOWED
             )
         product.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'Product successfully deleted'})
+        # return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 # Creating the collection endpoint
@@ -92,4 +82,5 @@ def collection_detail(request, pk):
         if collection.products.count() > 0:
             return Response({'error': 'Collection cannot be deleted'})
         collection.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({'message': 'Collection deleted successfully'})
+        # return Response(status=status.HTTP_204_NO_CONTENT)
