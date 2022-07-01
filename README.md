@@ -120,6 +120,6 @@ There is a zip folder named: fyardstore2-GCP.zip, this file was prepare for depl
 The project was deploy and tested on GCP and work perfectly.
 If you want to test or use the zip folder on GCP you can do so, but if you want to use the app with docker you can just clone the main project.
 
-### Thank you for visiting GitHub repo.
+### Thank you for visiting my GitHub.
 
 ## HAPPY CODING !!!
