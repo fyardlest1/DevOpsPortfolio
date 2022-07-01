@@ -1,0 +1,11 @@
+{% extends "store/base.html" %} {% load static %}{% block title %} Products List
+{% endblock%} {% block content%}
+  <h1>Products List</h1>
+  <ul>
+    {% for product in products %}
+    <li>{{ product.title }} - {{ product.unit_price }}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+{% endblock %} {% block jsfiles %} {% endblock jsfiles %}

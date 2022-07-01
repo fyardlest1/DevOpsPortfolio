@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <title>Shopping 5 Stars</title>
     <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+ 
 </head>
 <body>
-    <div class="left-position">
-        <img src="{% static 'main/images/main_logo.png' %}">
-        <a href="#">Welcome to our shop</a>
+    <div class="container">
+        <div>
+            <img src="{% static 'main/images/main_logo.png' %}" class="logo-image pt-4 max-width-100">
+            <p>Welcome to Yardley Fashion shop</p>
+        </div>
+        <a href="{% url 'store:home' %}" class="btn btn-success">See our products</a>
     </div>
 </body>
 </html>

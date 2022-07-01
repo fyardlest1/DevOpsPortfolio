@@ -39,7 +39,7 @@ class Product(models.Model):
     # A collection can have multiple products
     # on_delete=models.PROTECT means if we are accidently delete a collection we do not delete all the products in that collection
     collection = models.ForeignKey(
-        Collection, on_delete=models.PROTECT, related_name='products', null=True)
+        Collection, on_delete=models.PROTECT, related_name='products')
     # Implement a many-to-many relationship between Promotion & Product
     promotions = models.ManyToManyField(Promotion, blank=True)
 

@@ -1,0 +1,26 @@
+{% extends "store/base.html" %} {% load static %}{% block title %} Products List
+{% endblock%} {% block content%}
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+        <div class="col">
+            <div>
+                <p class="text-center text-uppercase font-monospace fw-bold fs-2 pt-3 text-white">Our Product List</p>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex row-cols-1 row-cols-sm-2 row-cols-md-4">
+        {% for product in products %}
+        <div class="cols-6">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">Product #{{ product.id }}:</div>
+                <div class="card-body">
+                    <h5 class="card-title fs-5">{{ product.title }}: ${{ product.unit_price }}</h5>
+                    <p class="card-text fs-6">{{ product.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %} {% block jsfiles %} {% endblock jsfiles %}

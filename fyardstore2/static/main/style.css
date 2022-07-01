@@ -10,15 +10,13 @@ body {
     font-family: Arial;
 }
 
-.left-position {
-    position: fixed; /* or absolute */
-    margin-top: 30px;
-    margin-left: 15px;
-}
-
-a {
+p {
     display: block;
     color: white;
     margin-top: 30px;
     font-size: 30px;
+}
+
+.logo-image {
+    width: 10%;
 }
