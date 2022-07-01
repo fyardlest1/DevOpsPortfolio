@@ -1,4 +1,4 @@
-# DevOpsPortfolio
+# Python Back-End / Django Nucamp Portfolio
 
 ## About the project
 This project is my portfolio for the Backend, SQL, and DevOps with Python Bootcamp at Nucamp -> nucamp.co
